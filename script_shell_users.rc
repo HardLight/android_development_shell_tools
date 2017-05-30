@@ -1,0 +1,7 @@
+#!/bin/bash
+# ======================================
+#   Developed by Adrian DC - 2015-2017
+# ======================================
+
+# SSH shortcut
+alias sshabcd='ssh abcd.efgh';

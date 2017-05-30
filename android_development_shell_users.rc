@@ -1,0 +1,61 @@
+#!/bin/bash
+# ======================================
+#   Developed by Adrian DC - 2015-2017
+# ======================================
+
+# === Android Shell Users Folder ===
+android_development_shell_users_entrypoint=${BASH_SOURCE[0]};
+android_development_shell_users_dir=$(dirname ${android_development_shell_users_entrypoint});
+
+# === Android Shell Users Update ===
+function shusersup()
+{
+  # Usage: shusersup (Reloads android_development_shell_users scripts)
+
+  # Reload sources
+  source "${android_development_shell_users_entrypoint}";
+  echo '';
+  echo -e ' \e[1;33mandroid_development_shell_users: \e[0;33mFunctions loaded properly\e[0m';
+  echo '';
+}
+
+# === Android Shell Users Sources ===
+android_development_shell_users_sources=( ${android_development_shell_users_dir}/script_shell_users.rc );
+
+# === Android Shell Users Importations ===
+for file_source in ${android_development_shell_users_sources[@]}; do
+
+  # Import all android_development_shell_users scripts
+  source ${file_source};
+
+done;
+
+# === Android Shell Users Path Getter ===
+function shusersget()
+{
+  # Usage: shusersget (Get android_development_shell_users path)
+
+  # Get android_development_shell_users path
+  echo ${android_development_shell_users_dir};
+}
+
+# === Android Shell Users Path Access ===
+function shuserscd()
+{
+  # Usage: shuserscd (Access android_development_shell_users path)
+
+  # Access android_development_shell_users path
+  cd $(shusersget);
+}
+
+# === Android Shell Users Functions Editor ===
+function shuserse()
+{
+  # Usage: shuserse (Direct access to users sources)
+
+  # Variables
+  local files='';
+
+  # Open all sources
+  fileedit "${android_development_shell_users_sources}";
+}
