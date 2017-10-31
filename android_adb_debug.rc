@@ -114,9 +114,9 @@ function adbstacktombstone()
   adbro;
 
   # Acquire last tombstone file
-  tombstone_last=$(adb shell ls -t1 '/data/tombstones/tombstone*' \
+  tombstone_last=$(adb shell 'ls -t1 "/data/tombstones/tombstone*"' \
                  | head -n 1);
 
   # Run slack wiht input
-  stack <(adb shell cat "${tombstone_last}");
+  stack <(adb shell "cat '${tombstone_last}'");
 }
